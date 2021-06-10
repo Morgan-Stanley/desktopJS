@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>desktopJS</title>
+	<meta name="description" content="Documentation for desktopJS">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">desktopJS</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>desktopJS</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#" id="" style="color: inherit; text-decoration: none;">
+					<h1><img src="https://raw.githubusercontent.com/wiki/MorganStanley/desktopJS/images/logo.png" alt="desktopJS"></h1>
+				</a>
+				<p><a href="https://www.npmjs.com/package/@morgan-stanley/desktopjs"><img src="https://badge.fury.io/js/%40morgan-stanley%2Fdesktopjs.svg" alt="npm version"></a>
+					<a href="https://github.com/MorganStanley/desktopJS/actions/workflows/continuous-integration.yml"><img src="https://github.com/MorganStanley/desktopJS/actions/workflows/continuous-integration.yml/badge.svg?event=push" alt="Build Status"></a>
+				<a href="https://codecov.io/gh/MorganStanley/desktopJS"><img src="https://codecov.io/gh/MorganStanley/desktopJS/branch/main/graph/badge.svg" alt="codecov"></a></p>
+				<p>desktopJS is a common API across multiple HTML5 containers. By programming to a
+					common API, applications can target multiple HTML5 containers without change. Detecting
+					what container in which you are hosted, desktopJS provides shims and polyfills to
+					bridge the common API to the underlying container.  The goal is to help applications be
+				container agnostic and provide portability when multiple container deployments are desired.</p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>The first step is to simply <a href="http://opensource.morganstanley.com/desktopJS/modules/_desktopjs_src_registry_.html#resolvecontainer">resolve</a> the current <a href="http://opensource.morganstanley.com/desktopJS/classes/_desktopjs_src_container_.container.html">container</a>. This enumerates
+					all registered containers (including your own custom container or derived custom implementations) and
+				returns the container implementation that matches.</p>
+				<pre><code><span style="color: #0000FF">var</span><span style="color: #000000"> </span><span style="color: #001080">container</span><span style="color: #000000"> = </span><span style="color: #001080">desktopJS</span><span style="color: #000000">.</span><span style="color: #795E26">resolveContainer</span><span style="color: #000000">();</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Container: &quot;</span><span style="color: #000000"> + </span><span style="color: #001080">container</span><span style="color: #000000">.</span><span style="color: #001080">hostType</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>Interact with the <a href="http://opensource.morganstanley.com/desktopJS/classes/_desktopjs_src_container_.container.html">container</a> via a single api instead of having conditional code or applications
+				based on deployment.</p>
+				<pre><code><span style="color: #001080">container</span><span style="color: #000000">.</span><span style="color: #795E26">addTrayIcon</span><span style="color: #000000">({ </span><span style="color: #001080">icon:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;assets/img/application.png&#039;</span><span style="color: #000000">, </span><span style="color: #001080">text:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Example&#039;</span><span style="color: #000000"> }, () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Icon clicked&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#building" id="building" style="color: inherit; text-decoration: none;">
+					<h2>Building</h2>
+				</a>
+				<p>The library uses gulp and rollup for building.  All build dependencies are included as
+				devDependencies and are installed during npm install.</p>
+				<pre><code><span style="color: #001080">$</span><span style="color: #000000"> </span><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span>
+</code></pre>
+				<p>Build the project.  This runs static analysis, unit tests and bundles the output with
+				rollup.</p>
+				<pre><code><span style="color: #001080">$</span><span style="color: #000000"> </span><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">run</span><span style="color: #000000"> </span><span style="color: #001080">build</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">test</span>
+</code></pre>
+				<p>For those using <a href="https://code.visualstudio.com/">Visual Studio Code</a>, tasks.json has a build task.</p>
+				<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+					<h2>Development</h2>
+				</a>
+				<a href="#local-hosting" id="local-hosting" style="color: inherit; text-decoration: none;">
+					<h3>Local Hosting</h3>
+				</a>
+				<p>To run the examples or to manually test scenarios in each container, there is a gulp task providing
+				a local server with live reload.  This can be run directly via gulp or through npm.</p>
+				<pre><code><span style="color: #001080">$</span><span style="color: #000000"> </span><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">start</span>
+</code></pre>
+				<p>This is configured to listen at <a href="http://localhost:8000">http://localhost:8000</a> and will reload upon
+					any change to the project build output under /dist or the web example under /examples/web.  All of the
+					included examples make use of this example application to showcase the portability of one
+				codebase.</p>
+				<a href="#unit-tests" id="unit-tests" style="color: inherit; text-decoration: none;">
+					<h3>Unit tests</h3>
+				</a>
+				<p>The tests can be run independent of the build.</p>
+				<pre><code><span style="color: #001080">$</span><span style="color: #000000"> </span><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">test</span>
+</code></pre>
+				<p>A task is provided for <a href="https://code.visualstudio.com/">Visual Studio Code</a> users that can be launched
+				from the command palette via</p>
+				<pre><code><span style="color: #000000">&gt;Tasks: </span><span style="color: #001080">Run</span><span style="color: #000000"> </span><span style="color: #001080">Test</span><span style="color: #000000"> </span><span style="color: #001080">Task</span>
+</code></pre>
+				<p>or it is recommended to define a custom keyboard binding.</p>
+				<pre><code><span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&quot;key&quot;</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;ctrl+shift+t&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&quot;command&quot;</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;workbench.action.tasks.test&quot;</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<p>Examples showcasing usage of desktopJS for various containers and scenarios can be found under
+				the <a href="https://github.com/MorganStanley/desktopJS/tree/main/examples">examples</a> directory.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_morgan_stanley_desktopjs.html">@morgan-<wbr>stanley/desktopjs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_morgan_stanley_desktopjs_electron.html">@morgan-<wbr>stanley/desktopjs-<wbr>electron</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_morgan_stanley_desktopjs_openfin.html">@morgan-<wbr>stanley/desktopjs-<wbr>openfin</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
